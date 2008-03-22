@@ -24,9 +24,7 @@ revisions, meta data, subscriptions, media files (your downloads), as
 well as your plugins and templates.
 
 This is in case, for some odd reason, your host accidentally loses all
-your files; its happened to me personally twice, on two different
-hosts since I began using DokuWiki– and backing up manually can be
-quite a nightmare.
+your files.
 
 %description -l pl.UTF-8
 Jest to plugin dla DokuWiki, który pozwala na archiwizacje
