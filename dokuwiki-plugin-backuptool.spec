@@ -2,12 +2,12 @@
 Summary:	DokuWiki Backup Tool Plugin
 Summary(pl.UTF-8):	Wtyczka Backup Tool dla DokuWiki
 Name:		dokuwiki-plugin-%{_plugin}
-Version:	20070405
-Release:	0.1
+Version:	20080824
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://tatewake.com/wiki/_media/projects:backuptool-04052007.zip
-# Source0-md5:	b2c33a5243b7d46705e4720012f05f34
+Source0:	http://tatewake.com/wiki/_media/projects:backuptool-%{version}.tar.gz
+# Source0-md5:	f98defc3c5f3613750868edc1c297f0e
 Source1:	dokuwiki-find-lang.sh
 URL:		http://tatewake.com/wiki/projects:backuptool_for_dokuwiki
 Requires:	dokuwiki >= 20061106
