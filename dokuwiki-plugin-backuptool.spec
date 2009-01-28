@@ -14,8 +14,9 @@ Requires:	dokuwiki >= 20061106
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_dokudir	/usr/share/dokuwiki
-%define		_plugindir	%{_dokudir}/lib/plugins/%{_plugin}
+%define		dokuconf	/etc/webapps/dokuwiki
+%define		dokudir		/usr/share/dokuwiki
+%define		plugindir	%{dokudir}/lib/plugins/%{_plugin}
 
 %description
 This is a plugin for DokuWiki which enables you to backup the most
@@ -35,8 +36,8 @@ najważniejszych danych ze strony.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_plugindir}
-cp -a . $RPM_BUILD_ROOT%{_plugindir}
+install -d $RPM_BUILD_ROOT%{plugindir}
+cp -a . $RPM_BUILD_ROOT%{plugindir}
 
 # find locales
 sh %{SOURCE1} %{name}.lang
@@ -44,7 +45,13 @@ sh %{SOURCE1} %{name}.lang
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+# force css cache refresh
+if [ -f %{dokuconf}/local.php ]; then
+	touch %{dokuconf}/local.php
+fi
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%dir %{_plugindir}
-%{_plugindir}/*.php
+%dir %{plugindir}
+%{plugindir}/*.php
